@@ -1,7 +1,7 @@
 import asyncio
 import random
 import string
-from typing import Protocol
+from typing import Protocol, List 
 
 from iot.message import Message, MessageType
 
@@ -38,7 +38,7 @@ class IOTService:
     def get_device(self, device_id: str) -> Device:
         return self.devices[device_id]
 
-    async def run_program(self, program: list[Message]) -> None:
+    async def run_program(self, program: List[Message]) -> None:
         print("=====RUNNING PROGRAM======")
         for msg in program:
             await self.send_msg(msg)
